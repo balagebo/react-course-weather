@@ -4,7 +4,10 @@ const React = require('react');
 
 var About = (props) => {
     return (
-        <h3>About</h3>
+        <div>
+            <h3>About</h3>
+            <p>About the app</p>
+        </div>
     );
 };
 
