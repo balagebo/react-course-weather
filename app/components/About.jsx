@@ -5,8 +5,19 @@ const React = require('react');
 var About = (props) => {
     return (
         <div>
-            <h3>About</h3>
-            <p>About the app</p>
+            <h1 className="text-center">About</h1>
+            <p>Sample application built with React</p>
+            <div className="callout">
+                <h5>Employing</h5>
+                <ul>
+                    <li>
+                        <a href="http://foundation.zurb.com/sites" target="_blank">Foundation Sites</a>
+                    </li>
+                    <li>
+                        <a href="http://openweathermap.org/" target="_blank">OpenWeatherMap API</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     );
 };
