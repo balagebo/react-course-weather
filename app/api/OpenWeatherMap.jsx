@@ -8,16 +8,18 @@ module.exports = {
         var requestURL = `${weather_url}&q=${encodedLocation}`;
 
         return axios.get(requestURL).then(function(res) {
-            if (res.data.cod && res.data.message) {
-                console.log(res);
-                throw new Error(res.data.message);
-            }
-            else {
+            if (res.data) {
                 return res.data.main.temp;
             }
+            else {
+                return new Error('Uh-oh. Seems like the API specs changed. Cannot read temp from response');
+            }
         }, function(res) {
-            console.log(res);
-            //throw new Error(res.data.message);
+            var errorMessage = res.message;
+            if (res.response && res.response.status == 404) {
+                errorMessage = 'City not found';
+            }
+            throw new Error(errorMessage);
         });
     }
 };
